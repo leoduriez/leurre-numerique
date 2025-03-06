@@ -1277,6 +1277,17 @@ h2::after {
     cursor: none !important;
 }
 
+/* Masquer le curseur personnalisé sur mobile et tablette */
+@media (max-width: 1024px) {
+    * {
+        cursor: auto !important;
+    }
+    .custom-cursor,
+    .cursor-ring {
+        display: none !important;
+    }
+}
+
 .custom-cursor {
     width: 8px;
     height: 8px;
