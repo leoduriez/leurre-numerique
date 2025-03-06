@@ -11,6 +11,7 @@ EventTarget.prototype.addEventListener = function(type, listener, options) {
 };
 
 document.addEventListener('DOMContentLoaded', function() {
+    
     // Éléments du DOM
     const nav = document.querySelector('.nav-container');
     const menuToggle = document.querySelector('.menu-toggle');
