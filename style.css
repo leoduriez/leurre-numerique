@@ -1,0 +1,1809 @@
+/* Styles généraux */
+body {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    min-height: 100vh;
+    font-family: 'Michroma', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Style pour bloquer le scroll quand le menu est ouvert */
+body.menu-open {
+    overflow: hidden;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+
+/* Classe spécifique pour la police Michroma */
+.font-michroma {
+    font-family: 'Michroma', sans-serif !important;
+}
+
+/* Styles pour l'effet parallax multi-couches */
+.parallax-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.95), rgba(240, 240, 240, 0.95));
+    overflow: hidden;
+    z-index: -10;
+    perspective: 1000px;
+    opacity: 0.8;
+}
+
+/* Overlay pour l'effet d'opalescence - désactivé pour éviter l'effet de flou */
+body::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: none;
+    pointer-events: none;
+    z-index: -5;
+}
+
+/* Couches parallax */
+.parallax-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    will-change: transform;
+    transition: transform 0.05s ease-out;
+}
+
+/* Fond étoilé pour la couche la plus éloignée */
+.stars-bg {
+    background-image: radial-gradient(circle, rgba(30, 64, 124, 0.15) 1px, transparent 1px);
+    background-size: 50px 50px;
+    width: 200%;
+    height: 200%;
+    top: -50%;
+    left: -50%;
+}
+
+/* Groupes d'éléments binaires par couche */
+.binary-group {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-family: 'Michroma', monospace;
+    user-select: none;
+    pointer-events: none;
+}
+
+/* Éléments binaires */
+/* Éléments binaires - opacité réduite */
+.binary-element {
+    position: absolute;
+    font-weight: bold;
+    opacity: 0.3; /* Réduit de 0.6 à 0.3 */
+    text-shadow: 0 0 5px #376eb5;
+    will-change: transform;
+}
+
+
+/* Effet parallax pour l'en-tête */
+#accueil {
+    background-attachment: fixed;
+}
+
+/* Styles pour les sections vidéo et shorts */
+#video, #shorts {
+    padding: 4rem 0;
+}
+
+/* Styles pour la FAQ */
+#faq {
+    padding: 4rem 0;
+    color: white;
+}
+
+/* Effet de survol pour les éléments de la FAQ */
+.faq-item {
+    border: 1px solid rgba(46, 95, 170, 0.1);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.7);
+    box-shadow: 0 4px 15px rgba(46, 95, 170, 0.05);
+}
+
+.faq-question {
+    position: relative;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    background: transparent;
+    cursor: pointer;
+    color: white;
+}
+
+.faq-icon {
+    font-size: 1.5rem;
+    font-weight: 300;
+    color: #2E5FAA;
+    transition: all 0.3s ease;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+}
+
+.faq-question:hover .faq-icon {
+    background-color: #2E5FAA;
+    color: white;
+    transform: rotate(90deg);
+}
+
+.faq-answer {
+    max-height: 0;
+    overflow: hidden;
+    transition: all 0.3s ease;
+    background-color: rgba(255, 255, 255, 0.9);
+}
+
+.faq-item.active {
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+.faq-item.active .faq-question {
+    background-color: rgba(255, 255, 255, 0.95);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(45deg);
+    background-color: #2E5FAA;
+    color: white;
+}
+
+.faq-item.active .faq-answer {
+    max-height: 1000px;
+    border-top: 1px solid #e5e7eb;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.faq-item.active .faq-answer {
+    animation: slideDown 0.3s ease-out;
+}
+
+/* Styles pour le bouton de redirection vidéo */
+.video-redirect-container {
+    margin-top: 2rem;
+}
+
+.video-redirect-btn {
+    display: inline-flex;
+    align-items: center;
+    padding: 1rem 2.5rem;
+    background-color: #2E5FAA;
+    color: white;
+    text-decoration: none;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.video-redirect-btn:hover {
+    background-color: #2E5FAA;
+    transform: translateY(-2px);
+}
+
+/* Effet de texte avec ombre */
+.text-shadow-lg {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Styles pour la section parallaxe */
+.parallax-section {
+    position: relative;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.parallax-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    transform: translateZ(-1px) scale(2);
+    z-index: -1;
+}
+
+/* Animation pour les titres de section */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Effet d'ombre pour les titres - sans animation */
+.title-shadow {
+    text-shadow: 3px 3px 0px rgba(46, 95, 170, 0.2), 
+                 5px 5px 10px rgba(0, 0, 0, 0.1);
+    position: relative;
+    display: inline-block;
+}
+
+
+@keyframes pulse {
+    0% {
+        opacity: 0.6;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.6;
+    }
+}
+
+/* Styles pour le footer */
+/* Modification du footer pour l'abaisser */
+footer {
+    flex-shrink: 0;
+    margin-top: auto;
+    position: relative;
+    padding: 2rem 0;
+    border-top: 1px solid rgba(46, 95, 170, 0.1);
+    box-shadow: 0 -2px 10px rgba(46, 95, 170, 0.05);
+    /* Ajout d'une marge supplémentaire en haut du footer */
+    margin-top: 50px; 
+}
+
+/* Modification de la structure du conteneur pour assurer que le footer reste en bas */
+.content-wrapper {
+    flex: 1 0 auto;
+    min-height: calc(100vh - 150px); /* Réduire la hauteur minimale pour abaisser le footer */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Ajout d'espace après la dernière section avant le footer */
+#faq, #shorts, #video, section:last-of-type {
+    margin-bottom: 50px;
+}
+
+/* Assurer que le body utilise tout l'espace disponible */
+body {
+    background: linear-gradient(135deg, #f5f5f5 0%, #e0e0e0 100%);
+    min-height: 100vh;
+    font-family: 'Michroma', sans-serif;
+    overflow-x: hidden;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; /* Cela pousse le footer vers le bas */
+}
+
+/* Style pour le copyright */
+footer .copyright {
+    font-size: 1rem;
+    background: linear-gradient(45deg, #2E5FAA, #5A8AD3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 500;
+    letter-spacing: 1px;
+    text-align: center;
+    margin-top: 1rem;
+    position: relative;
+    text-shadow: none;
+}
+
+/* Effet de survol pour les icônes sociales */
+footer a {
+    transition: all 0.3s ease;
+}
+
+footer a:hover {
+    transform: translateY(-3px);
+}
+
+/* Styles pour la navigation - version plus discrète */
+.nav-container {
+    backdrop-filter: blur(10px);
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.6));
+    border-bottom: 1px solid rgba(46, 95, 170, 0.05);
+    transition: all 0.3s ease;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    box-shadow: 0 1px 5px rgba(46, 95, 170, 0.03);
+}
+
+.nav-container.scrolled {
+    background: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.75));
+    box-shadow: 0 2px 8px rgba(46, 95, 170, 0.07);
+}
+
+.nav-wrapper {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+/* Logo styles - fixe dans la navigation sans aucune animation */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    position: relative;
+    z-index: 20;
+    /* Suppression complète de toute animation ou transition */
+    transition: none !important;
+    animation: none !important;
+    transform: none !important;
+    /* Espacement minimal */
+    padding: 8px 0;
+}
+
+.nav-logo:hover {
+    /* Désactivation de la transformation au survol */
+    transform: none;
+}
+
+.nav-logo i {
+    color: #2E5FAA;
+    font-size: 2rem;
+}
+
+/* Style pour l'image du logo - empêcher tout mouvement et mise en valeur */
+.nav-logo img {
+    position: relative;
+    transform: none !important;
+    transition: none !important;
+    animation: none !important;
+    height: 32px !important; /* Taille légèrement plus grande */
+    filter: drop-shadow(0 2px 4px rgba(46, 95, 170, 0.2));
+}
+
+/* Menu mobile */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 20;
+}
+
+.menu-toggle span {
+    width: 100%;
+    height: 3px;
+    background-color: #2E5FAA;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+/* Navigation menu */
+.nav-menu {
+    transition: all 0.3s ease;
+}
+
+/* Transition pour la barre de navigation */
+nav {
+    transition: transform 0.3s ease;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 1.5rem;
+    margin-right: 10px;
+}
+
+.nav-item {
+    position: relative;
+}
+
+.nav-link {
+    position: relative;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 0.85rem;
+    padding: 0.5rem;
+    color: rgba(46, 95, 170, 0.75);
+    transition: all 0.3s ease;
+    white-space: nowrap;
+    opacity: 0.85;
+}
+
+.nav-link::before {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background: linear-gradient(to right, rgba(46, 95, 170, 0.7), rgba(90, 138, 211, 0.7));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.5;
+}
+
+.nav-link:hover {
+    color: #2E5FAA;
+    opacity: 1;
+}
+
+.nav-link:hover::before {
+    transform: scaleX(1);
+    transform-origin: left;
+    opacity: 0.7;
+}
+
+/* Responsive styles */
+@media (max-width: 1024px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-menu {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        width: 100%;
+        height: 100vh;
+        background: rgba(255, 255, 255, 0.98);
+        padding: 80px 40px 40px 40px;
+        transition: all 0.4s ease;
+        opacity: 0;
+        visibility: hidden;
+    }
+
+    .nav-menu.active {
+        right: 0;
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        align-items: center;
+        gap: 2rem;
+    }
+
+    .nav-item {
+        width: 100%;
+        text-align: center;
+    }
+
+    .nav-link {
+        display: block;
+        font-size: 1.2rem;
+        padding: 1rem;
+    }
+
+    /* Animation du menu burger */
+    .menu-toggle.active span:first-child {
+        transform: translateY(9px) rotate(45deg);
+    }
+
+    .menu-toggle.active span:nth-child(2) {
+        opacity: 0;
+    }
+
+    .menu-toggle.active span:last-child {
+        transform: translateY(-9px) rotate(-45deg);
+    }
+}
+
+/* Animation pour le menu lors du défilement */
+.nav-container.scroll-down {
+    transform: translateY(-100%);
+}
+
+.nav-container.scroll-up {
+    transform: translateY(0);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* Styles pour le menu déroulant */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.nav-menu.active .nav-item {
+    animation: fadeIn 0.3s ease forwards;
+    opacity: 0;
+}
+
+.nav-menu.active .nav-item:nth-child(1) { animation-delay: 0.1s; }
+.nav-menu.active .nav-item:nth-child(2) { animation-delay: 0.2s; }
+.nav-menu.active .nav-item:nth-child(3) { animation-delay: 0.3s; }
+.nav-menu.active .nav-item:nth-child(4) { animation-delay: 0.4s; }
+
+/* Styles pour les iframes YouTube */
+iframe {
+    border-radius: 8px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+/* Styles pour le carrousel simple */
+/* Styles pour la grille de shorts */
+.shorts-grid {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem 0;
+}
+
+.shorts-item {
+    transition: all 0.3s ease;
+    margin-bottom: 2rem;
+}
+
+.shorts-item:hover {
+    transform: translateY(-5px);
+}
+
+/* Styles spécifiques pour les iframes YouTube */
+.shorts-item iframe {
+    width: 100%;
+    height: 100%;
+    border: none;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    aspect-ratio: 9/16;
+    max-width: 315px;
+    margin: 0 auto;
+    display: block;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    transition: all 0.3s ease;
+}
+
+.shorts-item:hover iframe {
+    box-shadow: 0 8px 30px rgba(46, 95, 170, 0.3);
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Animation d'entrée pour les shorts */
+.shorts-item {
+    animation: fadeIn 0.5s ease forwards;
+}
+
+/* Styles responsive */
+@media (min-width: 768px) {
+    .shorts-grid {
+        max-width: 1200px;
+    }
+    
+    .shorts-item {
+        margin-bottom: 0;
+    }
+}
+
+/* Styles pour les shorts sur mobile */
+@media (max-width: 767px) {
+    .shorts-item iframe {
+        max-width: 250px;
+        height: 100%;
+    }
+    
+    .shorts-item > div {
+        max-width: 250px !important;
+        margin: 0 auto;
+    }
+    
+    #shorts {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+    
+    #shorts h2 {
+        font-size: 1.5rem;
+    }
+}
+
+/* Styles pour le carrousel de shorts */
+.shorts-swiper {
+    width: 100%;
+    padding: 30px 0;
+    overflow: hidden;
+    position: relative;
+}
+
+.swiper-slide {
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.7;
+}
+
+.swiper-slide-active {
+    opacity: 1;
+    transform: scale(1.05);
+    z-index: 2;
+}
+
+.swiper-slide:hover {
+    transform: scale(1.1);
+    z-index: 5;
+}
+
+/* Personnalisation des flèches de navigation */
+.swiper-button-next,
+.swiper-button-prev {
+    color: #2E5FAA;
+    background-color: rgba(255, 255, 255, 0.8);
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.swiper-button-next:after,
+.swiper-button-prev:after {
+    font-size: 18px;
+    font-weight: bold;
+}
+
+.swiper-button-next:hover,
+.swiper-button-prev:hover {
+    background-color: #2E5FAA;
+    color: white;
+}
+
+/* Personnalisation de la pagination */
+.swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    background-color: #2E5FAA;
+    opacity: 0.5;
+}
+
+.swiper-pagination-bullet-active {
+    opacity: 1;
+    background-color: #2E5FAA;
+    transform: scale(1.2);
+}
+
+/* Animations globales */
+@keyframes float {
+    0% { transform: translateY(0px); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0px); }
+}
+
+@keyframes pulse {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Application des animations - logo exclu */
+/* Le logo n'a plus d'animation */
+
+.video-redirect-btn {
+    animation: none;
+    background: linear-gradient(45deg, #2E5FAA, #5A8AD3, #2E5FAA);
+    background-size: 200% 200%;
+}
+
+.youtube-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1.1rem 2.5rem;
+    border-radius: 50px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    font-size: 0.9rem;
+    transition: all 0.3s ease;
+    background: linear-gradient(45deg, #FF0000, #FF5C5C, #FF0000);
+    background-size: 200% 200%;
+    color: white;
+    box-shadow: 0 4px 15px rgba(255, 0, 0, 0.3);
+    text-decoration: none;
+    margin-bottom: 1rem;
+    animation: gradientBG 3s ease infinite;
+}
+
+.youtube-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 20px rgba(255, 0, 0, 0.4);
+    background-position: right center;
+}
+
+/* Bouton retour en haut de page */
+.back-to-top-btn {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    width: 50px;
+    height: 50px;
+    background-color: #2E5FAA;
+    color: white;
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 99;
+    opacity: 1;
+    transform: translateY(0);
+    transition: background-color 0.3s ease, box-shadow 0.3s ease;
+    box-shadow: 0 4px 10px rgba(46, 95, 170, 0.3);
+}
+
+.back-to-top-btn.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.back-to-top-btn:hover {
+    background-color: #1e4b8a;
+    box-shadow: 0 6px 15px rgba(46, 95, 170, 0.5);
+}
+
+.back-to-top-btn i {
+    font-size: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.parallax-content h2 {
+    animation: none;
+}
+
+.parallax-content p {
+    animation: none;
+}
+
+/* Animation des sections au scroll - désactivée */
+.fade-in-section {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+    transition: none;
+}
+
+.fade-in-section.is-visible {
+    opacity: 1;
+    transform: none;
+    visibility: visible;
+}
+
+/* Titre principal et sa description - sans animation */
+h1.text-6xl {
+    color: white;
+}
+
+.text-xl {
+    color: black;
+}
+
+/* Navigation links - sans effets de survol */
+.nav-link {
+    position: relative;
+}
+
+/* Effets de survol pour le footer */
+/* Modification du conteneur des liens rapides pour le centrer */
+footer .space-y-2 {
+    align-items: center;
+    justify-content: center;
+    display: flex;
+    flex-direction: column;
+}
+
+/* Conteneur spécifique pour isoler le lien Contact à droite */
+.footer-contact-link {
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    margin-top: 15px;
+}
+
+/* Style pour le lien contact isolé */
+.footer-contact-link a {
+    border: 1px solid #2E5FAA;
+    padding: 6px 15px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    background-color: rgba(46, 95, 170, 0.1);
+    margin-right: 100px;
+}
+
+.footer-contact-link a:hover {
+    background-color: #2E5FAA;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(46, 95, 170, 0.2);
+}
+
+/* S'assurer que le titre des liens rapides est bien centré */
+footer h3 {
+    text-align: center;
+}
+
+/* Ajustement pour les écrans mobiles */
+@media (max-width: 767px) {
+    .footer-contact-link {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .footer-contact-link a {
+        margin-right: 0; /* Supprime la marge droite sur mobile */
+    }
+}
+.footer-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background: linear-gradient(90deg, #2E5FAA, #5A8AD3);
+    transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
+    border-radius: 2px;
+}
+
+.footer-link:hover {
+    color: #2E5FAA;
+}
+
+.footer-link:hover::after {
+    width: 100%;
+}
+
+.footer-social {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.footer-social:hover {
+    color: #2E5FAA;
+    transform: translateY(-3px);
+}
+
+/* Animation de la FAQ */
+.faq-item {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+    transform: translateX(10px);
+}
+
+.faq-icon {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.faq-item.active .faq-icon {
+    transform: rotate(135deg);
+}
+
+/* Fond simple */
+body {
+    background: linear-gradient(to bottom, rgba(255, 255, 255, 0.98), rgba(255, 255, 255, 0.95));
+    color: #333333;
+}
+
+/* Ajustement pour le contenu */
+#accueil, #video, #shorts, #faq {
+    position: relative;
+    z-index: 1;
+}
+
+/* Modification du gradient de l'en-tête pour la lisibilité */
+#accueil .absolute.inset-0.bg-gradient-to-b {
+    background: linear-gradient(to bottom, 
+        rgba(255, 255, 255, 0.8) 0%,
+        rgba(255, 255, 255, 0.6) 50%,
+        rgba(255, 255, 255, 0.8) 100%
+    );
+}
+
+/* Styles globaux pour les titres - sans animation */
+h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient(45deg, #2E5FAA, #5A8AD3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(46, 95, 170, 0.1);
+}
+
+/* Style spécifique pour le titre principal - sans animation */
+h1.text-6xl {
+    background: linear-gradient(45deg, #2E5FAA, #5A8AD3, #4A7AC3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 3px 3px 6px rgba(46, 95, 170, 0.2);
+}
+
+/* Style pour les titres de section - sans animation */
+h2 {
+    background: linear-gradient(45deg, #2E5FAA, #5A8AD3);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+
+
+/* Styles pour le carrousel en tube */
+.tube-carousel-container {
+    position: relative;
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 0 70px;
+    overflow: hidden;
+}
+
+.tube-carousel-perspective {
+    perspective: 1000px;
+    height: 400px;
+    position: relative;
+    margin: 0 auto;
+}
+
+.tube-carousel-track {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    transform-style: preserve-3d;
+    transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+
+.tube-carousel-slide {
+    position: absolute;
+    width: 60%;
+    height: 100%;
+    left: 20%;
+    top: 0;
+    opacity: 0;
+    overflow: hidden;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    transform-origin: center center;
+    transform: translateZ(-400px) rotateY(0deg);
+    transition: all 0.8s cubic-bezier(0.165, 0.84, 0.44, 1), opacity 0.6s ease;
+    background: linear-gradient(135deg, #2E5FAA, #5A8AD3);
+}
+
+.tube-carousel-slide.active {
+    opacity: 1;
+    transform: translateZ(0) rotateY(0deg);
+    z-index: 10;
+}
+
+.tube-carousel-slide.prev {
+    opacity: 0.7;
+    transform: translateZ(-200px) translateX(-50%) rotateY(25deg);
+    z-index: 9;
+}
+
+.tube-carousel-slide.next {
+    opacity: 0.7;
+    transform: translateZ(-200px) translateX(50%) rotateY(-25deg);
+    z-index: 9;
+}
+
+.tube-carousel-slide.far-prev {
+    opacity: 0.3;
+    transform: translateZ(-400px) translateX(-90%) rotateY(45deg);
+    z-index: 8;
+}
+
+.tube-carousel-slide.far-next {
+    opacity: 0.3;
+    transform: translateZ(-400px) translateX(90%) rotateY(-45deg);
+    z-index: 8;
+}
+
+.tube-carousel-content {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    padding-bottom: 177.78%;
+    background-color: rgba(46, 95, 170, 0.8);
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.tube-carousel-content iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 15px;
+    border: 2px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Contrôles du carrousel */
+.tube-carousel-controls {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    gap: 20px;
+}
+
+.tube-carousel-prev,
+.tube-carousel-next {
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #2E5FAA, #5A8AD3);
+    border: none;
+    border-radius: 50%;
+    color: white;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    z-index: 20;
+}
+
+.tube-carousel-prev:hover,
+.tube-carousel-next:hover {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+}
+
+.tube-carousel-dots {
+    display: flex;
+    gap: 10px;
+}
+
+.tube-dot {
+    width: 12px;
+    height: 12px;
+    background-color: rgba(90, 138, 211, 0.5);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.tube-dot.active {
+    background-color: #2E5FAA;
+    transform: scale(1.2);
+}
+
+/* Animation de tube */
+@keyframes tubeEffect {
+    0%, 50%, 100% { transform: scale(1) rotateY(0deg); filter: brightness(1); }
+}
+
+/* Particules pour l'effet de tube */
+.tube-particles-container {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    z-index: 5;
+    pointer-events: none;
+}
+
+.tube-particle {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background-color: rgba(255, 255, 255, 0.7);
+    border-radius: 50%;
+    pointer-events: none;
+    opacity: 0;
+    z-index: 5;
+    box-shadow: 0 0 10px 2px rgba(90, 138, 211, 0.8);
+    animation: particleAnimation 8s linear infinite;
+}
+
+.tube-particle.p1 { top: 10%; left: 45%; animation-delay: 0s; }
+.tube-particle.p2 { top: 20%; left: 30%; animation-delay: 0.8s; }
+.tube-particle.p3 { top: 30%; left: 70%; animation-delay: 1.6s; }
+.tube-particle.p4 { top: 40%; left: 20%; animation-delay: 2.4s; }
+.tube-particle.p5 { top: 50%; left: 80%; animation-delay: 3.2s; }
+.tube-particle.p6 { top: 60%; left: 40%; animation-delay: 4s; }
+.tube-particle.p7 { top: 70%; left: 60%; animation-delay: 4.8s; }
+.tube-particle.p8 { top: 80%; left: 25%; animation-delay: 5.6s; }
+.tube-particle.p9 { top: 90%; left: 75%; animation-delay: 6.4s; }
+.tube-particle.p10 { top: 15%; left: 55%; animation-delay: 7.2s; }
+
+@keyframes particleAnimation {
+    0%, 100% {
+        transform: translateZ(0) scale(1);
+        opacity: 0;
+    }
+}
+
+/* Effet de tunnel */
+.tube-carousel-perspective::before,
+.tube-carousel-perspective::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 30;
+}
+
+.tube-carousel-perspective::before {
+    box-shadow: inset 0 0 100px rgba(46, 95, 170, 0.7);
+    animation: tubePulse 5s infinite alternate;
+}
+
+.tube-carousel-perspective::after {
+    background: radial-gradient(circle at center, transparent 60%, rgba(46, 95, 170, 0.3) 100%);
+    mix-blend-mode: overlay;
+}
+
+/* Effet de lueur pour le tube */
+.tube-carousel-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, 
+        rgba(46, 95, 170, 0) 0%, 
+        rgba(90, 138, 211, 0.2) 25%, 
+        rgba(90, 138, 211, 0.2) 75%, 
+        rgba(46, 95, 170, 0) 100%);
+    z-index: 40;
+    pointer-events: none;
+    animation: tubeGlow 8s infinite alternate;
+}
+
+@keyframes tubeGlow {
+    0%, 50%, 100% { opacity: 0.3; }
+}
+
+@keyframes tubePulse {
+    0%, 100% { box-shadow: inset 0 0 100px rgba(46, 95, 170, 0.5); }
+}
+
+/* Effet de flou pour renforcer la profondeur */
+.tube-carousel-slide.prev,
+.tube-carousel-slide.next {
+    filter: blur(1px);
+}
+
+.tube-carousel-slide.far-prev,
+.tube-carousel-slide.far-next {
+    filter: blur(2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tube-carousel-perspective {
+        height: 300px;
+    }
+    
+    .tube-carousel-slide {
+        width: 80%;
+        left: 10%;
+    }
+}
+
+@media (max-width: 480px) {
+    .tube-carousel-perspective {
+        height: 250px;
+    }
+    
+    .tube-carousel-slide {
+        width: 90%;
+        left: 5%;
+    }
+    
+    .tube-carousel-prev,
+    .tube-carousel-next {
+        width: 40px;
+        height: 40px;
+        font-size: 16px;
+    }
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    border-radius: 3px;
+}
+
+/* Style pour les titres de FAQ */
+.faq-question span {
+    background: none;
+    -webkit-background-clip: initial;
+    -webkit-text-fill-color: initial;
+    color: #000000;
+    font-weight: 600;
+}
+
+/* Styles du curseur personnalisé */
+* {
+    cursor: none !important;
+}
+
+.custom-cursor {
+    width: 8px;
+    height: 8px;
+    background: #2E5FAA;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9999;
+    /* Amélioration de la fluidité avec une transition plus rapide */
+    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translate(-50%, -50%);
+    mix-blend-mode: normal;
+    box-shadow: 0 0 10px rgba(46, 95, 170, 0.5);
+}
+
+.cursor-ring {
+    width: 30px;
+    height: 30px;
+    border: 2px solid #2E5FAA;
+    border-radius: 50%;
+    position: fixed;
+    pointer-events: none;
+    z-index: 9998;
+    /* Transition plus rapide pour l'anneau */
+    transition: all 0.2s cubic-bezier(0.16, 1, 0.3, 1);
+    transform: translate(-50%, -50%);
+    animation: ringPulse 2s infinite;
+    box-shadow: 0 0 15px rgba(46, 95, 170, 0.3);
+}
+
+/* États de survol avec animations */
+.custom-cursor.hover {
+    width: 12px;
+    height: 12px;
+    background: #2E5FAA;
+    animation: cursorPulse 1s infinite;
+    mix-blend-mode: difference;
+}
+
+/* Style spécial pour le curseur dans la navigation */
+.nav-container .custom-cursor {
+    transition: all 0.1s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.nav-container .cursor-ring {
+    transition: all 0.15s cubic-bezier(0.16, 1, 0.3, 1) !important;
+}
+
+.cursor-ring.hover {
+    width: 50px;
+    height: 50px;
+    border-color: #2E5FAA;
+    border-width: 3px;
+    opacity: 0.8;
+    animation: ringRotate 2s infinite linear;
+}
+
+/* Animation de pulsation pour le curseur */
+@keyframes cursorPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.5);
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+    }
+}
+
+/* Animation de rotation pour l'anneau */
+@keyframes ringRotate {
+    0% {
+        transform: translate(-50%, -50%) rotate(0deg);
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(360deg);
+    }
+}
+
+/* Animation de pulsation pour l'anneau */
+@keyframes ringPulse {
+    0% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: translate(-50%, -50%) scale(1.2);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translate(-50%, -50%) scale(1);
+        opacity: 1;
+    }
+}
+
+/* Styles pour la page de présentation */
+.nav-link.active {
+    color: #2E5FAA;
+    font-weight: 600;
+}
+
+/* Styles pour assurer que le footer reste en bas */
+.content-wrapper {
+    flex: 1 0 auto;
+    min-height: 100vh;
+}
+
+footer {
+    flex-shrink: 0;
+    margin-top: auto;
+}
+
+.nav-link.active::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+/* Carousel Customization */
+/* Structure de base */
+#shorts {
+  padding-bottom: 80px; /* Espace réduit pour les contrôles du carrousel */
+  position: relative;
+}
+
+/* Perspective pour l'effet 3D */
+#shorts .container {
+  perspective: 1000px;
+  transform-style: preserve-3d;
+  transition: all 0.3s ease;
+  align-items: center;
+}
+
+/* Style pour le conteneur des shorts centré */
+#shorts .container > div:first-child {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Styles pour les shorts au format 9:16 */
+/* Styles pour le carrousel circulaire avec focus */
+.circular-carousel-container {
+  position: relative;
+  width: 100%;
+  height: 600px;
+  margin: 0 auto;
+  perspective: 1200px;
+  overflow: hidden;
+}
+
+.circular-carousel {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.carousel-item {
+  position: absolute;
+  width: 220px;
+  height: 390px;
+  transition: all 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  transform-style: preserve-3d;
+  filter: brightness(0.7) blur(1px);
+  transform-origin: center center;
+}
+
+/* Positions des éléments sur le cercle */
+.carousel-item[data-index="0"] {
+  transform: rotateY(0deg) translateZ(350px) scale(1.2);
+  z-index: 10;
+  filter: brightness(1) blur(0);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+}
+
+.carousel-item[data-index="1"] {
+  transform: rotateY(120deg) translateZ(300px) scale(0.8);
+  z-index: 5;
+}
+
+.carousel-item[data-index="2"] {
+  transform: rotateY(240deg) translateZ(300px) scale(0.8);
+  z-index: 5;
+}
+
+/* Styles pour les iframes dans le carrousel */
+#shorts iframe {
+  border-radius: 16px;
+  max-width: 100%;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  border: 2px solid rgba(255, 255, 255, 0.2);
+  transition: all 0.5s ease;
+  background-color: #000;
+}
+
+/* Styles pour les contrôles du carrousel */
+.carousel-controls {
+  margin-top: 30px;
+}
+
+.control-btn {
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:hover {
+  transform: scale(1.15);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carousel-indicators {
+  display: flex;
+  align-items: center;
+}
+
+.indicator {
+  transition: all 0.3s ease;
+  opacity: 0.7;
+}
+
+.indicator.active {
+  transform: scale(1.3);
+  opacity: 1;
+}
+
+.indicator:hover {
+  transform: scale(1.2);
+  opacity: 0.9;
+}
+
+/* Effet de focus et de flou */
+.circular-carousel:hover .carousel-item[data-index="0"] {
+  transform: rotateY(0deg) translateZ(380px) scale(1.25);
+}
+
+/* Animation de rotation pour l'effet 3D */
+@keyframes floatAnimation {
+  0% { transform: translateY(0) rotateY(0deg); }
+  50% { transform: translateY(-10px) rotateY(2deg); }
+  100% { transform: translateY(0) rotateY(0deg); }
+}
+
+/* Styles responsive pour le carrousel */
+@media (max-width: 768px) {
+  .circular-carousel-container {
+    height: 500px;
+  }
+  
+  .carousel-item {
+    width: 180px;
+    height: 320px;
+  }
+  
+  .carousel-item[data-index="0"] {
+    transform: rotateY(0deg) translateZ(250px) scale(1.1);
+  }
+  
+  .carousel-item[data-index="1"],
+  .carousel-item[data-index="2"] {
+    transform: rotateY(0deg) translateZ(200px) scale(0.7);
+    opacity: 0.5;
+  }
+}
+
+/* Animation des sections de présentation */
+.space-y-6 {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+/* Media query pour réduire la taille de police à 1280px et moins */
+@media (max-width: 1280px) {
+    html, body {
+        font-size: 14px; /* Taille de base réduite */
+    }
+    
+    h1 {
+        font-size: 1.8rem !important;
+    }
+    
+    h2 {
+        font-size: 1.5rem !important;
+    }
+    
+    h3 {
+        font-size: 1.3rem !important;
+    }
+    
+    p, li, a {
+        font-size: 0.9rem;
+    }
+    
+    .nav-link {
+        font-size: 0.8rem;
+    }
+}
+
+.relative img {
+    opacity: 0;
+    animation: fadeInRight 0.8s ease-out 0.3s forwards;
+}
+
+/* Animation des cartes de mission */
+.grid.md\:grid-cols-3 > div {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.grid.md\:grid-cols-3 > div:nth-child(1) { animation-delay: 0.2s; }
+.grid.md\:grid-cols-3 > div:nth-child(2) { animation-delay: 0.4s; }
+.grid.md\:grid-cols-3 > div:nth-child(3) { animation-delay: 0.6s; }
+
+/* Animation des membres de l'équipe */
+.grid.md\:grid-cols-4 > div {
+    opacity: 0;
+    animation: fadeInUp 0.8s ease-out forwards;
+}
+
+.grid.md\:grid-cols-4 > div:nth-child(1) { animation-delay: 0.2s; }
+.grid.md\:grid-cols-4 > div:nth-child(2) { animation-delay: 0.4s; }
+.grid.md\:grid-cols-4 > div:nth-child(3) { animation-delay: 0.6s; }
+.grid.md\:grid-cols-4 > div:nth-child(4) { animation-delay: 0.8s; }
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* Styles pour le fond avec logo en parallaxe */
+.logo-parallax-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+/* Styles pour les chiffres binaires flottants */
+.binary-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    pointer-events: none;
+}
+
+.logo-parallax-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.logo-bg-image {
+    width: 60%;
+    max-width: 800px;
+    height: auto;
+    opacity: 0.2;
+    filter: blur(1px) sepia(30%) hue-rotate(190deg) saturate(150%);
+    transition: transform 0.3s ease-out;
+    will-change: transform;
+}
+
+/* Styles pour les chiffres binaires */
+/* Styles pour les chiffres binaires */
+.floating-binary {
+    position: absolute;
+    color: rgba(128, 128, 128, 0.3); /* Changé de bleu à gris */
+    font-family: 'Courier New', monospace;
+    font-weight: bold;
+    text-shadow: 0 0 5px rgba(128, 128, 128, 0.5); /* Changé de bleu à gris */
+    animation: floatEnhanced 20s infinite ease-in-out;
+    will-change: transform, opacity;
+}
+
+.floating-binary-small {
+    font-size: 0.6rem;
+    opacity: 0.5;
+    animation-duration: 15s;
+}
+
+.floating-binary-medium {
+    font-size: 0.9rem;
+    opacity: 0.6;
+    animation-duration: 20s;
+}
+
+.floating-binary-large {
+    font-size: 1.1rem;
+    opacity: 0.7;
+    animation-duration: 25s;
+}
+
+@keyframes floatEnhanced {
+    0% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+    25% {
+        transform: translateY(-10px) translateX(5px) scale(1.05);
+    }
+    50% {
+        transform: translateY(0) translateX(10px) scale(1);
+    }
+    75% {
+        transform: translateY(10px) translateX(5px) scale(0.95);
+    }
+    100% {
+        transform: translateY(0) translateX(0) scale(1);
+    }
+}
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    #mentions-legales-btn {
+        cursor: pointer;
+        transition: all 0.3s ease;
+    }
+    
+    #mentions-legales-btn:hover {
+        color: #2E5FAA;
+    }
+    
+    #mentions-legales-content {
+        opacity: 0;
+        transition: max-height 0.5s ease, opacity 0.3s ease;
+    }
+    
+    #mentions-legales-content.active {
+        opacity: 1;
+    }
+    
+    /* Animation de la flèche */
+    .rotate-180 {
+        transform: rotate(180deg);
+    }
+    
+    /* Styles globaux pour les titres - couleur uniforme #2E5FAA */
+h1, h2, h3, h4, h5, h6 {
+    background: linear-gradient(45deg, #2E5FAA, #2E5FAA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 2px 2px 4px rgba(46, 95, 170, 0.1);
+}
+
+/* Style spécifique pour le titre principal */
+h1.text-6xl {
+    background: linear-gradient(45deg, #2E5FAA, #2E5FAA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-shadow: 3px 3px 6px rgba(46, 95, 170, 0.2);
+}
+
+/* Style pour les titres de section */
+h2 {
+    background: linear-gradient(45deg, #2E5FAA, #2E5FAA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    position: relative;
+}
+
+/* Style pour les titres dans le footer */
+footer h3 {
+    background: linear-gradient(45deg, #2E5FAA, #2E5FAA);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-align: center;
+}
