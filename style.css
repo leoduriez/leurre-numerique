@@ -893,48 +893,7 @@ footer .space-y-2 {
     margin-right: 100px;
 }
 
-.footer-contact-link a:hover {
-    background-color: #2E5FAA;
-    color: white;
-    transform: translateY(-3px);
-    box-shadow: 0 4px 10px rgba(46, 95, 170, 0.2);
-}
-
-/* S'assurer que le titre des liens rapides est bien centré */
-footer h3 {
-    text-align: center;
-}
-
-/* Ajustement pour les écrans mobiles */
-@media (max-width: 767px) {
-    .footer-contact-link {
-        justify-content: center;
-        margin-bottom: 20px;
-    }
-    
-    .footer-contact-link a {
-        margin-right: 0; /* Supprime la marge droite sur mobile */
-    }
-}
-.footer-link::after {
-    content: '';
-    position: absolute;
-    width: 0;
-    height: 2px;
-    bottom: -4px;
-    left: 0;
-    background: linear-gradient(90deg, #2E5FAA, #5A8AD3);
-    transition: width 0.4s cubic-bezier(0.65, 0, 0.35, 1);
-    border-radius: 2px;
-}
-
-.footer-link:hover {
-    color: #2E5FAA;
-}
-
-.footer-link:hover::after {
-    width: 100%;
-}
+.footer-contact-link a
 
 .footer-social {
     transition: transform 0.3s ease, color 0.3s ease;
@@ -1806,4 +1765,49 @@ footer h3 {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     text-align: center;
+}
+
+.footer-contact-link a {
+    border: 1px solid #2E5FAA;
+    padding: 6px 15px;
+    border-radius: 50px;
+    transition: all 0.3s ease;
+    background-color: rgba(46, 95, 170, 0.1);
+    margin-right: 100px;
+    display: inline-block;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-contact-link a:hover {
+    background-color: #2E5FAA;
+    color: white;
+    transform: translateY(-3px);
+    box-shadow: 0 4px 10px rgba(46, 95, 170, 0.2);
+}
+
+/* Ajustement pour les écrans tablettes */
+@media (max-width: 1024px) and (min-width: 768px) {
+    .footer-contact-link {
+        justify-content: center;
+        margin-bottom: 15px;
+    }
+    
+    .footer-contact-link a {
+        margin-right: 0;
+        padding: 8px 20px;
+        font-size: 0.95rem;
+    }
+}
+
+/* Ajustement pour les écrans mobiles */
+@media (max-width: 767px) {
+    .footer-contact-link {
+        justify-content: center;
+        margin-bottom: 20px;
+    }
+    
+    .footer-contact-link a {
+        margin-right: 0; /* Supprime la marge droite sur mobile */
+    }
 }
