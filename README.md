@@ -1,4 +1,4 @@
-# Compet YTB 5
+# Compet YTB
 
 Ce projet est un site web moderne et interactif comprenant plusieurs pages pour présenter du contenu lié à une compétition YouTube.
 
@@ -25,6 +25,7 @@ Le projet est organisé comme suit :
 - HTML5
 - CSS3
 - JavaScript (Vanilla)
+- tailwind CSS
 
 ## 🔧 Installation
 
