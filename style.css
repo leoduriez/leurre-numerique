@@ -1823,3 +1823,9 @@ footer h3 {
         margin-right: 0; /* Supprime la marge droite sur mobile */
     }
 }
+
+.blur-section {
+    /* Suppression de l'effet de flou */
+    background-color: rgba(255, 255, 255, 0.1);
+    border-radius: 1rem;
+}
