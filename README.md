@@ -1,53 +1,72 @@
-# Compet YTB
+# Leurre Numérique
 
-Ce projet est un site web moderne et interactif comprenant plusieurs pages pour présenter du contenu lié à une compétition YouTube.
+Site web officiel de Leurre Numérique, une chaîne YouTube dédiée à la sensibilisation sur les arnaques numériques et la cybersécurité.
 
 ## 📁 Structure du Projet
 
 Le projet est organisé comme suit :
-- `index.html` - Page d'accueil principale
-- `about.html` - Page À propos
-- `contact.html` - Page de contact
-- `presentation.html` - Page de présentation
-- `style.css` - Styles CSS du site
-- `script.js` - Scripts JavaScript pour l'interactivité
-- `images/` - Dossier contenant les ressources images
+- `index.html` - Page d'accueil avec vidéo vedette et shorts
+- `about.html` - Page À propos de l'équipe
+- `contact.html` - Page pour nous contacter
+- `presentation.html` - Page de présentation détaillée
+- `style.css` - Styles CSS avec effets visuels modernes
+- `script.js` - Animations et interactivité (parallaxe, menu mobile, FAQ)
+- `images/` - Logos et ressources visuelles
 
-## 🚀 Fonctionnalités
+## 🎥 Fonctionnalités Principales
 
-- Design moderne et responsive
-- Navigation fluide entre les pages
-- Interactions dynamiques grâce à JavaScript
-- Mise en page stylisée avec CSS
+- Intégration des vidéos YouTube en format 16:9
+- Section Shorts interactive
+- FAQ dynamique
+- Effets de parallaxe avec animation binaire
+- Design moderne avec thème bleu professionnel
+- Navigation responsive
+- Formulaire d'avis via Typeform
+- Mentions légales en accordéon
 
 ## 💻 Technologies Utilisées
 
 - HTML5
-- CSS3
-- JavaScript (Vanilla)
-- tailwind CSS
+- CSS3 avec Tailwind CSS
+- JavaScript Vanilla
+- Font Awesome pour les icônes
+- Police Michroma pour le style futuriste
+- Intégration YouTube
 
 ## 🔧 Installation
 
 1. Clonez ce dépôt
-2. Ouvrez `index.html` dans votre navigateur
+2. Assurez-vous d'avoir une connexion internet (pour les polices et CDN)
+3. Ouvrez `index.html` dans votre navigateur
 
-## 📝 Utilisation
+## 📱 Compatibilité
 
-Naviguez entre les différentes pages pour découvrir :
-- La page d'accueil avec les informations principales
-- La section À propos pour plus de détails
-- La page de présentation pour le contenu détaillé
-- Le formulaire de contact pour nous joindre
+- Design responsive pour tous les appareils
+- Optimisé pour les navigateurs modernes
+- Support du mode sombre via les préférences système
 
-## 🤝 Contribution
+## 👥 L'Équipe
 
-Les contributions sont les bienvenues ! N'hésitez pas à ouvrir une issue ou à soumettre une pull request.
+- Carrara Zélie - Réalisation
+- Ganga Yiza - Scénario
+- Mouhamad Nisrine - Montage
+- Bareille Vincent - Caméra
+- Mohamedi Jugurta - Son
+- Joseph Kylian - SEO et Diffusion
+- Léo Duriez et Aliou Diarra - Développeur web
 
 ## 📫 Contact
 
-Pour toute question ou suggestion, utilisez la page de contact du site.
+- YouTube : [@leurrenumerique](https://www.youtube.com/@leurrenumerique)
+- Instagram : [@leurre_numerique](https://www.instagram.com/leurre_numerique)
+- Email : contact@leurrenumerique.fr
+
+## 🔒 Sécurité
+
+- Politique CSP stricte
+- Protection contre le contenu mixte
+- Gestion RGPD conforme
 
 ## 📜 Licence
 
-Ce projet est sous licence MIT. 
+© 2025 Leurre Numérique - Tous droits réservés. 
